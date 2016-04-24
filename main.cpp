@@ -35,7 +35,7 @@ int main() {
 
         // set env display
         const char *name = "DISPLAY";
-        const char *value = ":1";
+        const char *value = ":99";
         int ret;
 
         if ((ret = setenv(name,value, 1)) != 0) {
@@ -44,13 +44,12 @@ int main() {
 
         //exec Xvfb
         const char *path = "/usr/bin/Xvfb";
-        const char *arg0 = ":1";
+        const char *arg0 = ":99";
         const char *arg1 = "-screen";
-        const char *arg2 = "0";
+        const char *arg2 = "2";
         const char *arg3 = "1600x1200x32";
         const char *arg4 = "-shmem";
-        execl(path, arg0, arg1, arg2, arg3, arg4, (char *)0);
-
+        execl(path, arg0, arg4, (char *)0);
     }
 
     else if (pid > 0) {
